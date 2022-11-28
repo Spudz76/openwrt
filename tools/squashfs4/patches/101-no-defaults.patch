@@ -1,0 +1,82 @@
+From: Tony Butler <spudz76@gmail.com>
+Date:   Sat Aug 30 00:37:29 2025 -0600
+Subject: tools/squashfs4: adjust for squashfs option updates
+
+enable all compressors, set `COMP_DEFAULT` to zstd, configuration can
+easily override the default where zstd is not preferable
+
+add PREFIX support to upstream Makefile via patch
+
+define `Host/Uninstall` Makefile target, use default build args rather
+than overriding `Host/Compile` and `Host/Install` targets
+
+Signed-off-by: Tony Butler <spudz76@gmail.com>
+---
+ squashfs-tools/Makefile     | 14 +++++++-------
+ 1 files changed, 7 insertions(+), 7 deletions(-)
+
+--- a/squashfs-tools/Makefile
++++ b/squashfs-tools/Makefile
+@@ -33,7 +33,7 @@
+ # Obviously at least one of the compression types must be built and selected
+ # as the default compression type.
+ #
+-GZIP_SUPPORT = 1
++#GZIP_SUPPORT = 1
+ 
+ ########### Building XZ support #############
+ #
+@@ -46,7 +46,7 @@
+ # your distribution package manager.
+ #
+ # To skip building ZX support comment out the line below.
+-XZ_SUPPORT = 1
++#XZ_SUPPORT = 1
+ 
+ # Enable support for OpenWrt extended compression options by uncommenting
+ # next line.  Do not do this unless you understand the implications.
+@@ -62,7 +62,7 @@
+ # your distribution package manager.
+ #
+ # To skip building LZO support comment out the line below.
+-LZO_SUPPORT = 1
++#LZO_SUPPORT = 1
+ 
+ 
+ ########### Building LZ4 support #############
+@@ -76,7 +76,7 @@
+ # your distribution package manager.
+ #
+ # To skip building LZ4 support comment out the line below.
+-LZ4_SUPPORT = 1
++#LZ4_SUPPORT = 1
+ 
+ 
+ ########### Building ZSTD support ############
+@@ -90,7 +90,7 @@
+ # your distribution package manager.
+ #
+ # To skip building ZSTD support comment out the line below.
+-ZSTD_SUPPORT = 1
++#ZSTD_SUPPORT = 1
+ 
+ 
+ ######## Specifying default compression ########
+@@ -99,7 +99,7 @@
+ # in Mksquashfs.  Obviously the compression algorithm must have been
+ # selected to be built
+ #
+-COMP_DEFAULT = gzip
++#COMP_DEFAULT = gzip
+ 
+ 
+ ###############################################
+@@ -115,7 +115,7 @@
+ # contains support to add XATTRs to the Squashfs filesystem
+ # on the command line, via actions and input and output them via
+ # pseudo-files etc. which is independent of library/OS support.
+-XATTR_SUPPORT = 1
++#XATTR_SUPPORT = 1
+ 
+ # If your C library or operating system doesn't support XATTRs then
+ # this definition is the one you should comment out.  Commenting
