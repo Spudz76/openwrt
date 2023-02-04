@@ -126,6 +126,7 @@ TARGET_LDFLAGS += -flto
 
 # --enable-stunnel needed for OpenSSL API compatibility bits
 CONFIGURE_ARGS += \
+	--enable-debug \
 	--enable-reproducible-build \
 	--enable-lighty \
 	--enable-opensslall \
