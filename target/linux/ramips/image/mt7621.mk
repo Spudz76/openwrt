@@ -2091,6 +2091,16 @@ define Device/linksys_ea7300-v1
 endef
 TARGET_DEVICES += linksys_ea7300-v1
 
+define Device/linksys_ea7300-v1-nodual
+  $(Device/linksys_ea7xxx)
+  IMAGE_SIZE := 73728k
+  DEVICE_DTS := mt7621_linksys_ea7300-v1-nodual
+  DEVICE_MODEL := EA7300
+  DEVICE_VARIANT := v1 (no-dual)
+  LINKSYS_HWNAME := EA7300
+endef
+TARGET_DEVICES += linksys_ea7300-v1-nodual
+
 define Device/linksys_ea7300-v2
   $(Device/linksys_ea7xxx)
   DEVICE_MODEL := EA7300
