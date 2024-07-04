@@ -150,7 +150,10 @@ CONFIGURE_VARS += \
 	CFLAGS="$(TARGET_CFLAGS)" \
 	LDFLAGS="$(TARGET_LDFLAGS)" \
 	CLANG="$(CLANG)" \
-	BPFTOOL="$(STAGING_DIR_HOST)/usr/sbin/bpftool"
+	BPF_TARGET="$(BPF_ARCH)-linux-gnu" \
+	LLC="$(LLVM_LLC)" \
+	BPF_LDFLAGS="-march=$(BPF_TARGET) -mcpu=v4" \
+	BPFTOOL=""
 
 ifneq ($(findstring s,$(OPENWRT_VERBOSE)),)
 	MAKE_FLAGS+=V=1
